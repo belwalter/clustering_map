@@ -1,0 +1,18 @@
+version: "3"
+services:
+  web-clustering:
+    build: .
+    container_name: 'api-clustering'
+    command: sh -c 'python app.py'
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./api:/api
+    depends_on:
+      - "db-mongo"
+
+  db-mongo:
+    container_name: 'db-geo-api'
+    image: mongo
+    ports:
+      - "27017:27017"
