@@ -8,7 +8,7 @@ def connection():
 
 def get_restaurants():
     db = connection()
-    documentos = db.get_collection('restaurant').find({},{'name' : 1, "address.coord" : 2}).limit(4500)
+    documentos = db.get_collection('restaurant').find({},{'name' : 1, "address.coord" : 2}).limit(4000)
     restaurants = []
     for dato in documentos:
         restaurants.append(dato)
